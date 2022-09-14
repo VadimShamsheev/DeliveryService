@@ -16,9 +16,9 @@ namespace DeliveryService.Controllers
         {
             return View(_repo.Products);
         }
-        public ViewResult ProductDetails(int productId)
+        public ViewResult ProductDetails(int id)
         {
-            return View(_repo.GetProductById(productId));
+            return View(_repo.GetProductById(id));
         }
     }
 }

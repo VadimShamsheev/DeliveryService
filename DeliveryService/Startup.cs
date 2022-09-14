@@ -34,7 +34,15 @@ namespace DeliveryService
 
             app.UseStaticFiles();
             app.UseStatusCodePages();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(route =>
+            {
+                /*route.MapRoute(
+                    name: "ProductDetails",
+                    template: "{controller=Home}/{action}/");*/
+                route.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
