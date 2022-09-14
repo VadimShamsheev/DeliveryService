@@ -996,11 +996,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prepod\\source\\repos\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
+      "projectUniqueName": "C:\\Users\\prepod\\source\\repos\\DeliveryServiceFromGit\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
       "projectName": "DeliveryService",
-      "projectPath": "C:\\Users\\prepod\\source\\repos\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
+      "projectPath": "C:\\Users\\prepod\\source\\repos\\DeliveryServiceFromGit\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
       "packagesPath": "C:\\Users\\prepod\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prepod\\source\\repos\\DeliveryService\\DeliveryService\\obj\\",
+      "outputPath": "C:\\Users\\prepod\\source\\repos\\DeliveryServiceFromGit\\DeliveryService\\DeliveryService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

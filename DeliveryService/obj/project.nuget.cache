@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G2sUS8aTF6VLT9nUNxQQB0R5WEiOpW3FCHYLx1BQzgrYnCTUS4n5xlCiudKux134+QyRWP4xGtaaQGb2L/Iacw==",
+  "dgSpecHash": "7TuJ9bIY2OlegaKmNZn6zNVuMQEovfZYI1ksi0h3YH3Gr+fNnvLUPOwHQgbzcBpnE4qdBMkZG07pNSbf8OEHVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\prepod\\source\\repos\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
+  "projectFilePath": "C:\\Users\\prepod\\source\\repos\\DeliveryServiceFromGit\\DeliveryService\\DeliveryService\\DeliveryService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prepod\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\prepod\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
