@@ -3,15 +3,17 @@ using System;
 using DeliveryService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DeliveryService.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220917043621_Add_OrderProduct_Relation")]
+    partial class Add_OrderProduct_Relation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,8 +76,6 @@ namespace DeliveryService.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
 
                     b.ToTable("Order");
                 });
@@ -163,15 +163,6 @@ namespace DeliveryService.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("ClientId");
                         });
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.Order", b =>
-                {
-                    b.HasOne("DeliveryService.Models.Client", "ClientEntity")
-                        .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DeliveryService.Models.OrderProduct", b =>

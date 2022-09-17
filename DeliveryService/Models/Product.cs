@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeliveryService.Models
@@ -17,5 +18,8 @@ namespace DeliveryService.Models
         [ForeignKey(nameof(CategoryEntity))]
         public int Category { get; set; }
         public Category CategoryEntity { get; set; }
+
+        /*public ICollection<Order> OrderEntities { get; set; }
+        public List<OrderProduct> OrderProductEntity { get; set; }*/
     }
 }
