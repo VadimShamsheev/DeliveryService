@@ -3,15 +3,17 @@ using System;
 using DeliveryService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DeliveryService.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220923095710_AddExtraProduct")]
+    partial class AddExtraProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,42 +51,6 @@ namespace DeliveryService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Client");
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.Extra", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Weigth")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Extra");
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.ExtraProduct", b =>
-                {
-                    b.Property<int>("ExtraId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ExtraCount")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ExtraId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ExtraProducts");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Order", b =>
@@ -199,21 +165,6 @@ namespace DeliveryService.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("ClientId");
                         });
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.ExtraProduct", b =>
-                {
-                    b.HasOne("DeliveryService.Models.Extra", "ExtraEntity")
-                        .WithMany()
-                        .HasForeignKey("ExtraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DeliveryService.Models.Product", "ProductEntity")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Order", b =>

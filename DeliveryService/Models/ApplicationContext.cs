@@ -8,6 +8,7 @@ namespace DeliveryService.Models
         public DbSet<Product> Product { get; set; }
         public DbSet<Client> Client { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<ExtraProduct> ExtraProducts { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
@@ -15,6 +16,7 @@ namespace DeliveryService.Models
         {
             //modelBuilder.Entity<Product>().HasMany(p => p.OrderEntities).WithOne
             modelBuilder.Entity<OrderProduct>().HasKey(p => new { p.OrderId, p.ProductId });
+            modelBuilder.Entity<ExtraProduct>().HasKey(p => new { p.ExtraId, p.ProductId });
         }
     }
 }
