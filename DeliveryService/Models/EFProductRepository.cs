@@ -13,10 +13,10 @@ namespace DeliveryService.Models
         {
             _context = context;
         }
-        public IQueryable<Product> Products => _context.Product;
+        public IQueryable<Product> Products => _context.Products;
         public void AddProduct(Product product)
         {
-            _context.Product.Add(product);
+            _context.Products.Add(product);
             _context.SaveChanges();
         }
 
@@ -28,12 +28,12 @@ namespace DeliveryService.Models
 
         public Product GetProductById(int id)
         {
-            return _context.Product.Where(p => p.Id.Equals(id)).Include(p => p.CategoryEntity).FirstOrDefault();
+            return _context.Products.Where(p => p.Id.Equals(id)).Include(p => p.CategoryEntity).FirstOrDefault();
         }
 
         public void UpdateProduct(Product product)
         {
-            Product prod = _context.Product.Where(p => p.Equals(product)).FirstOrDefault();
+            Product prod = _context.Products.Where(p => p.Equals(product)).FirstOrDefault();
             prod.Name = product.Name;
             prod.Description = product.Description;
             prod.Category = product.Category;

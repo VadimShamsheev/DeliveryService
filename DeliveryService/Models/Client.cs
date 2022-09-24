@@ -11,6 +11,7 @@ namespace DeliveryService.Models
         [Required]
         public string Name { get; set; }
         public Address Address { get; set; }
+        public int Discount { get; set; }
     }
     [Owned]
     public class Address

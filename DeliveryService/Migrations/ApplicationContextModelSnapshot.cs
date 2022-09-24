@@ -32,7 +32,7 @@ namespace DeliveryService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Client", b =>
@@ -42,13 +42,16 @@ namespace DeliveryService.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int>("Discount")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Extra", b =>
@@ -66,7 +69,7 @@ namespace DeliveryService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Extra");
+                    b.ToTable("Extras");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.ExtraProduct", b =>
@@ -159,7 +162,25 @@ namespace DeliveryService.Migrations
 
                     b.HasIndex("Category");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("DeliveryService.Models.UserData", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Client", b =>
@@ -194,7 +215,7 @@ namespace DeliveryService.Migrations
 
                             b1.HasKey("ClientId");
 
-                            b1.ToTable("Client");
+                            b1.ToTable("Clients");
 
                             b1.WithOwner()
                                 .HasForeignKey("ClientId");
@@ -245,6 +266,15 @@ namespace DeliveryService.Migrations
                     b.HasOne("DeliveryService.Models.Category", "CategoryEntity")
                         .WithMany("ProductsDBEntities")
                         .HasForeignKey("Category")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DeliveryService.Models.UserData", b =>
+                {
+                    b.HasOne("DeliveryService.Models.Client", "ClientEntity")
+                        .WithMany()
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

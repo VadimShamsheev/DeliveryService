@@ -108,3 +108,5 @@ C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryServ
 C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\obj\Debug\netcoreapp3.1\DeliveryService.dll
 C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\obj\Debug\netcoreapp3.1\DeliveryService.pdb
 C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\obj\Debug\netcoreapp3.1\DeliveryService.genruntimeconfig.cache
+C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

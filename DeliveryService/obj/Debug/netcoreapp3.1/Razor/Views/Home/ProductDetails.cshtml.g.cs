@@ -19,8 +19,15 @@ using DeliveryService.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\Views\_ViewImports.cshtml"
+using DeliveryService.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6ccacd581a02827cf5402b77cf30d9c4f5b8fc9e", @"/Views/Home/ProductDetails.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d52cc750fde2fb2cc94a355f5e382fa70b655435", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1d723e5291dc9f5cfb55b09b6dff8bf8474d56ca", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_ProductDetails : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Product>
     #nullable disable

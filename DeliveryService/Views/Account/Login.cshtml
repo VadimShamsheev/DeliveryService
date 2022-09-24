@@ -1,0 +1,24 @@
+﻿@model LoginModel
+
+<h2>Вход на сайт</h2>
+
+<a asp-action="Register" asp-controller="Account">Вы еще не с нами? Зарегистрируйтесь!</a>
+
+<form asp-action="Login" asp-controller="Account" asp-antiforgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div class="input-group">
+            <label asp-for="Email">Email</label>
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="input-group">
+            <label asp-for="Password">Password</label>
+            <input type="text" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="input-group">
+            <input type="submit" value="Войти" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</form>

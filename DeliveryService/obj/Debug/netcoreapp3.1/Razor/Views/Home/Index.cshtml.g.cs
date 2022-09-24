@@ -19,8 +19,15 @@ using DeliveryService.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\Views\_ViewImports.cshtml"
+using DeliveryService.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"995d893a78ed3e5fcfcd8e18e50b20ccfcd43248", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d52cc750fde2fb2cc94a355f5e382fa70b655435", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1d723e5291dc9f5cfb55b09b6dff8bf8474d56ca", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Product>>
     #nullable disable
@@ -60,7 +67,7 @@ using DeliveryService.Models;
 #line hidden
 #nullable disable
             WriteLiteral("        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "995d893a78ed3e5fcfcd8e18e50b20ccfcd432483890", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "995d893a78ed3e5fcfcd8e18e50b20ccfcd432484122", async() => {
 #nullable restore
 #line 5 "C:\Users\prepod\source\repos\DeliveryServiceFromGit\DeliveryService\DeliveryService\Views\Home\Index.cshtml"
                                                                                Write(p.Name);

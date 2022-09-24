@@ -4,9 +4,11 @@ namespace DeliveryService.Models
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Client> Client { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Extra> Extras { get; set; }
+        public DbSet<UserData> Users { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
         public DbSet<ExtraProduct> ExtraProducts { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using DeliveryService.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliveryService.Controllers
@@ -16,6 +17,7 @@ namespace DeliveryService.Controllers
         {
             return View(_repo.Products);
         }
+        [Authorize]
         public ViewResult ProductDetails(int id)
         {
             return View(_repo.GetProductById(id));

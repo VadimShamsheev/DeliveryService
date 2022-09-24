@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DeliveryService.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DeliveryService
 {
@@ -21,6 +22,8 @@ namespace DeliveryService
             services.AddDbContext<ApplicationContext>(o => o.UseNpgsql(
                 "Host=localhost;Port=5432;Database=DelivaryService;Username=postgres;Password=root"));
             services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
             services.AddMvc(o => o.EnableEndpointRouting = false);
         }
 
@@ -32,6 +35,9 @@ namespace DeliveryService
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseStaticFiles();
             app.UseStatusCodePages();
             app.UseMvc(route =>
