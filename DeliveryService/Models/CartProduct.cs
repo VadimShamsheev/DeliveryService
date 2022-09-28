@@ -5,14 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeliveryService.Models
 {
-    public class OrderProduct
+    public class CartProduct
     {
-        public int OrderId { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public int CartId { get; set; }
         public int ProductId { get; set; }
-        public int Count { get; set; }
         
-        [ForeignKey(nameof(OrderId))]
-        public Order OrderEntity { get; set; }
+        [ForeignKey(nameof(CartId))]
+        public Cart CartEntity { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product ProductEntity { get; set; }
     }

@@ -9,7 +9,10 @@ namespace DeliveryService.Models
         public DbSet<Client> Clients { get; set; }
         public DbSet<Extra> Extras { get; set; }
         public DbSet<UserData> Users { get; set; }
-        public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartProduct> CartProducts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<CartProduct> OrderProducts { get; set; }
         public DbSet<ExtraProduct> ExtraProducts { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
@@ -17,8 +20,8 @@ namespace DeliveryService.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Product>().HasMany(p => p.OrderEntities).WithOne
-            modelBuilder.Entity<OrderProduct>().HasKey(p => new { p.OrderId, p.ProductId });
-            modelBuilder.Entity<ExtraProduct>().HasKey(p => new { p.ExtraId, p.ProductId });
+            //modelBuilder.Entity<ExtraProduct>().HasKey(p => new { p.ExtraId, p.ProductId });
+            modelBuilder.Entity<ExtraProduct>().Property(p => p.ExtraCount).HasDefaultValue(1);
         }
     }
 }
