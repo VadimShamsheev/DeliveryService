@@ -24,5 +24,7 @@ namespace DeliveryService.Models
 
         [ForeignKey(nameof(CartId))]
         public Cart CartEntity { get; set; }
+        [ForeignKey(nameof(RestId))]
+        public Restaurant RestaurantEntity { get; set; }
     }
 }

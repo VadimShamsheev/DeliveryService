@@ -3,15 +3,17 @@ using System;
 using DeliveryService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DeliveryService.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220930071352_Remove_ProductIdFK_From_ExtraProductEntity")]
+    partial class Remove_ProductIdFK_From_ExtraProductEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,8 +159,6 @@ namespace DeliveryService.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.HasIndex("RestId");
-
                     b.ToTable("Orders");
                 });
 
@@ -188,21 +188,6 @@ namespace DeliveryService.Migrations
                     b.HasIndex("Category");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.Restaurant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Restaurant");
                 });
 
             modelBuilder.Entity("DeliveryService.Models.UserData", b =>
@@ -308,12 +293,6 @@ namespace DeliveryService.Migrations
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("DeliveryService.Models.Restaurant", "RestaurantEntity")
-                        .WithMany()
-                        .HasForeignKey("RestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DeliveryService.Models.Product", b =>
@@ -323,45 +302,6 @@ namespace DeliveryService.Migrations
                         .HasForeignKey("Category")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DeliveryService.Models.Restaurant", b =>
-                {
-                    b.OwnsOne("DeliveryService.Models.Address", "Address", b1 =>
-                        {
-                            b1.Property<int>("RestaurantId")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("integer")
-                                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                            b1.Property<int>("ApartmentNumber")
-                                .HasColumnType("integer");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("text");
-
-                            b1.Property<int>("Entrance")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Floor")
-                                .HasColumnType("integer");
-
-                            b1.Property<string>("HouseNumber")
-                                .IsRequired()
-                                .HasColumnType("text");
-
-                            b1.Property<string>("Street")
-                                .IsRequired()
-                                .HasColumnType("text");
-
-                            b1.HasKey("RestaurantId");
-
-                            b1.ToTable("Restaurant");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RestaurantId");
-                        });
                 });
 
             modelBuilder.Entity("DeliveryService.Models.UserData", b =>
