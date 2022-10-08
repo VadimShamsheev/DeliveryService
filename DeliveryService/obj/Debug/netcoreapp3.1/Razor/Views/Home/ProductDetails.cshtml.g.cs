@@ -27,7 +27,7 @@ using DeliveryService.Models.ViewModels;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6ccacd581a02827cf5402b77cf30d9c4f5b8fc9e", @"/Views/Home/ProductDetails.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1d723e5291dc9f5cfb55b09b6dff8bf8474d56ca", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"05fdc1a1cb8cca33a4e3c59dbde3a1488a0656e8", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_ProductDetails : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Product>
     #nullable disable

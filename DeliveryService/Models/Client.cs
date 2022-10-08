@@ -12,6 +12,9 @@ namespace DeliveryService.Models
         public string Name { get; set; }
         public Address Address { get; set; }
         public int Discount { get; set; }
+
+        [ForeignKey(nameof(Id))]
+        public UserData UserEntity { get; set; }
     }
     [Owned]
     public class Address

@@ -11,8 +11,5 @@ namespace DeliveryService.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-
-        [ForeignKey(nameof(Id))]
-        public Client ClientEntity { get; set; }
     }
 }

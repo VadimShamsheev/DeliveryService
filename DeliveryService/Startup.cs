@@ -22,6 +22,7 @@ namespace DeliveryService
             services.AddDbContext<ApplicationContext>(o => o.UseNpgsql(
                 "Host=localhost;Port=5432;Database=DelivaryService;Username=postgres;Password=root"));
             services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddTransient<ICategoriesRepository, EFCategoryRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
             services.AddMvc(o => o.EnableEndpointRouting = false);
