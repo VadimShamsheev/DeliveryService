@@ -7,13 +7,16 @@ namespace DeliveryService.Models
     public class EFProductRepository : IProductRepository
     {
         private ApplicationContext _context;
+        public IQueryable<Product> Products => _context.Products;
 
-        
         public EFProductRepository(ApplicationContext context)
         {
             _context = context;
         }
-        public IQueryable<Product> Products => _context.Products;
+        
+        public IEnumerable<Product> GetProductsByCategory(int categoryId) =>
+            _context.Products.Where(p => p.Category == categoryId).ToList();
+
         public void AddProduct(Product product)
         {
             _context.Products.Add(product);

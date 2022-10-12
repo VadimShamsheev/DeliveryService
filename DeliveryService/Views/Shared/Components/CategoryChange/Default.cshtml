@@ -1,0 +1,45 @@
+﻿@model CategoryChangeViewModel
+
+<form id="form_select">
+    <select class="form-select" asp-for="@Model.Id">
+        @await Component.InvokeAsync("CategoriesMenu")
+    </select>
+</form>
+
+<script asp-src-include="js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".form-select").change(function () {
+            $("#form_select").submit();
+        });
+        $("#form_select").submit(function (e) {
+            e.preventDefault();
+            var formData = $("#form_select").serialize();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("Index", "Home")',
+                data: formData,
+                success: function (response) {
+                    //elementUpdate("#productList");
+                    /*$("#productList").find("li").remove();
+                    var newChildren = response.getElementById("#productList").*/
+                    //console.log(response);
+                    $("#productList").html(response);
+                }
+            });
+        });
+    });
+    async function elementUpdate(selector) {
+        try {
+            var html = await (await fetch(location.href)).text();
+            var newdoc = new DOMParser().parseFromString(html, 'text/html');
+            document.querySelector(selector).outerHTML = newdoc.querySelector(selector).outerHTML;
+            console.log('Элемент ' + selector + ' был успешно обновлен');
+            return true;
+        } catch (err) {
+            console.log('При обновлении элемента ' + selector + ' произошла ошибка:');
+            console.dir(err);
+            return false;
+        }
+    }
+</script>

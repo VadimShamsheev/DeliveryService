@@ -7,6 +7,7 @@ namespace DeliveryService.Models
     {
         IQueryable<Product> Products { get; }
 
+        IEnumerable<Product> GetProductsByCategory(int categoryId);
         Product GetProductById(int id);
         void AddProduct(Product product);
         void UpdateProduct(Product product);

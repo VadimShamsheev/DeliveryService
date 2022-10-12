@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Доставка</title>
     <link rel="stylesheet" asp-href-include="css/bootstrap**.min.css" />
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -13,9 +14,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <select class="form-select">
-                            @await Component.InvokeAsync("CategoriesMenu")
-                        </select>
+                        @await Component.InvokeAsync("CategoryChange")
                     </li>
                 </ul>
             </div>
@@ -28,5 +27,6 @@
         }
     </nav>
     @RenderBody()
+    
 </body>
 </html>

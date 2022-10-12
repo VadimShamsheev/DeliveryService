@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Category>
 
+    <option value="0">Категория</option>
 @foreach (Category cat in Model)
 {
-    <option value="er"><a>@cat.Name</a></option>
+    <option value="@cat.Id"><a>@cat.Name</a></option>
 }
