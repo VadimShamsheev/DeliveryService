@@ -17,29 +17,13 @@
             var formData = $("#form_select").serialize();
             $.ajax({
                 type: "GET",
-                url: '@Url.Action("Index", "Home")',
+                url: '@Url.Action("CategorySort", "Home")',
                 data: formData,
                 success: function (response) {
-                    //elementUpdate("#productList");
-                    /*$("#productList").find("li").remove();
-                    var newChildren = response.getElementById("#productList").*/
-                    //console.log(response);
                     $("#productList").html(response);
+                    console.log(response);
                 }
             });
         });
     });
-    async function elementUpdate(selector) {
-        try {
-            var html = await (await fetch(location.href)).text();
-            var newdoc = new DOMParser().parseFromString(html, 'text/html');
-            document.querySelector(selector).outerHTML = newdoc.querySelector(selector).outerHTML;
-            console.log('Элемент ' + selector + ' был успешно обновлен');
-            return true;
-        } catch (err) {
-            console.log('При обновлении элемента ' + selector + ' произошла ошибка:');
-            console.dir(err);
-            return false;
-        }
-    }
 </script>

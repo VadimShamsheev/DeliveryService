@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Product>
+
+@foreach (var p in Model)
+{
+    <li class="list-group-item">
+        <a class="list-group-item-action" asp-controller="Home" asp-action="ProductDetails" asp-route-id=@p.Id>
+            <img src="@p.ImagePath" alt="Невозможно загрузить изображения" />
+            <p>@p.Name</p>
+        </a>
+        <button onclick="">В корзину</button>
+    </li>
+}
+
+<script type="text/javascript">
+    function OnButtonClick() {
+
+    }
+</script>

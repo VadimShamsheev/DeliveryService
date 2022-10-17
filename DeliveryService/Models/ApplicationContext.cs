@@ -19,9 +19,8 @@ namespace DeliveryService.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Product>().HasMany(p => p.OrderEntities).WithOne
-            //modelBuilder.Entity<ExtraProduct>().HasKey(p => new { p.ExtraId, p.ProductId });
             modelBuilder.Entity<ExtraProduct>().Property(p => p.ExtraCount).HasDefaultValue(1);
+            modelBuilder.Entity<Product>().Property(p => p.ImagePath).HasDefaultValue("/images/Default_Image.png");
         }
     }
 }

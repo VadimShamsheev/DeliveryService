@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using DeliveryService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DeliveryService.Models.Interfaces;
 
 namespace DeliveryService
 {
@@ -23,6 +24,7 @@ namespace DeliveryService
                 "Host=localhost;Port=5432;Database=DelivaryService;Username=postgres;Password=root"));
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddTransient<ICategoriesRepository, EFCategoryRepository>();
+            services.AddTransient<ICartRepository, EFCartRepository>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
             services.AddMvc(o => o.EnableEndpointRouting = false);

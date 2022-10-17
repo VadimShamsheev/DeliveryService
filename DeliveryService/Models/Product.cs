@@ -14,12 +14,10 @@ namespace DeliveryService.Models
         public string Description { get; set; }
         [Required]
         public decimal Price { get; set; }
+        public string ImagePath { get; set; }
 
         [ForeignKey(nameof(CategoryEntity))]
         public int Category { get; set; }
         public Category CategoryEntity { get; set; }
-
-        /*public ICollection<Order> OrderEntities { get; set; }
-        public List<OrderProduct> OrderProductEntity { get; set; }*/
     }
 }

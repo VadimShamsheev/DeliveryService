@@ -11,28 +11,28 @@ namespace DeliveryService.Controllers
     {
         private IProductRepository _repo;
 
-        public HomeController(IProductRepository repo)
-        {
-            _repo = repo;
-        }
+        public HomeController(IProductRepository repo) => _repo = repo;
 
         [HttpGet]
-        public IActionResult Index(int Id = 0)
+        public IActionResult Index() => View(_repo.Products);
+        
+        /// <summary>
+        /// Метод для выбора категории с использованием AJAX
+        /// </summary>
+        /// <param name="Id">Номер категории</param>
+        /// <returns>Частичное представление списка продуктов</returns>
+        public IActionResult CategorySort(int Id)
         {
+            IEnumerable<Product> productTempList = new List<Product>();
             if (Id == 0)
             {
-                return View(_repo.Products);
+                productTempList = _repo.Products;
             }
             else
             {
-                List<Product> p = _repo.GetProductsByCategory(Id).ToList();
-                StringBuilder listStr = new StringBuilder();
-                foreach (Product product in p)
-                {
-                    listStr.Append($"<li><a href='{ Url.Action("ProductDetails", "Home", product.Id) }'>{ product.Name }</a></li>");
-                }
-                return Content(listStr.ToString());
+                productTempList = _repo.GetProductsByCategory(Id);
             }
+            return PartialView("ProductsListPartial", productTempList);
         }
         [Authorize]
         public ViewResult ProductDetails(int id)

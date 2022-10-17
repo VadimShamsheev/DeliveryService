@@ -59,6 +59,7 @@ namespace DeliveryService.Controllers
                 if (user == null)
                 {
                     _context.Users.Add(new UserData { Email = model.Email, Password = model.Password });
+                    _context.Carts.Add(new Cart { ClientId = user.Id });
                     await _context.SaveChangesAsync();
                     await Authenticate(model.Email);
 
